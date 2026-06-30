@@ -235,7 +235,7 @@ fixtures (`.docx`/`.pdf`) can be regenerated with
 
 ## Demo video
 
-> ~2 min walkthrough: _add link here_.
+> ~2 min walkthrough: https://drive.google.com/file/d/1ISXyGQax2aMDnxiwzC-gmqZV6F-CGq1W/view?usp=drivesdk
 
 ## Assumptions
 
