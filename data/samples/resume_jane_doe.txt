@@ -1,0 +1,24 @@
+JANE DOE
+San Francisco, CA | j.doe@work.com | 415.555.0132 | github.com/janedoe
+
+SUMMARY
+Senior Software Engineer with experience building scalable web platforms and
+distributed systems. Passionate about developer tooling and mentorship.
+
+SKILLS
+JavaScript, TypeScript, React, Node.js, PostgreSQL, Docker, AWS, REST APIs
+
+EXPERIENCE
+Acme Corp - Senior Software Engineer
+Mar 2021 - Present
+- Led migration of the monolith to microservices; cut p99 latency by 40%.
+- Mentored 4 engineers and introduced an on-call rotation.
+
+Globex Inc - Software Engineer
+Jun 2018 - Feb 2021
+- Built a customer analytics pipeline processing 2M events/day.
+- Owned the public REST API used by 30+ partners.
+
+EDUCATION
+University of California, Berkeley
+B.S. in Computer Science, 2018

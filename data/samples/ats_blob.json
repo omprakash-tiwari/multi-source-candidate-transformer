@@ -1,0 +1,34 @@
+{
+  "exportedAt": "2026-06-01T09:00:00Z",
+  "records": [
+    {
+      "candidateId": "ats-1001",
+      "fullName": "Jane Doe",
+      "contact": { "primaryEmail": "jane.doe@gmail.com", "mobile": "+1 415-555-0132" },
+      "currentEmployer": "Acme Corporation",
+      "jobTitle": "Staff Software Engineer",
+      "headline": "Staff Software Engineer @ Acme | Distributed Systems",
+      "yearsOfExperience": 6,
+      "address": { "city": "San Francisco", "state": "California", "country": "United States" },
+      "socials": {
+        "linkedinUrl": "https://www.linkedin.com/in/janedoe",
+        "githubUrl": "https://github.com/janedoe"
+      },
+      "skillTags": ["JS", "ReactJS", "node", "Postgres", "k8s"],
+      "startedOn": "2021-02-15"
+    },
+    {
+      "candidateId": "ats-1002",
+      "fullName": "John Smith",
+      "contact": { "primaryEmail": "john.smith@outlook.com", "mobile": "+44 20 7946 0958" },
+      "currentEmployer": "Globex Inc",
+      "jobTitle": "Product Manager",
+      "headline": "Product Manager",
+      "yearsOfExperience": 9,
+      "address": { "city": "London", "state": "England", "country": "United Kingdom" },
+      "socials": { "linkedinUrl": "https://www.linkedin.com/in/johnsmith" },
+      "skillTags": ["Roadmapping", "SQL", "Agile"],
+      "startedOn": "2019-09-01"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$comment": "The canonical/default schema. When the CLI runs without --config, the full canonical record below is emitted (with provenance + confidence). This file documents the canonical shape and is also used by the web UI to pre-fill the config editor.",
+  "fields": [
+    { "path": "candidate_id", "type": "string" },
+    { "path": "full_name", "type": "string" },
+    { "path": "emails", "type": "string[]" },
+    { "path": "phones", "type": "string[]", "normalize": "E164" },
+    { "path": "location", "type": "object" },
+    { "path": "links", "type": "object" },
+    { "path": "headline", "type": "string" },
+    { "path": "years_experience", "type": "number" },
+    { "path": "skills", "type": "object[]" },
+    { "path": "experience", "type": "object[]" },
+    { "path": "education", "type": "object[]" }
+  ],
+  "include_confidence": true,
+  "include_provenance": true,
+  "on_missing": "null"
+}

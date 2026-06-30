@@ -1,0 +1,3 @@
+{ this is intentionally broken JSON,
+  "candidate": <<< not valid >>>,,,
+  missing quotes and braces

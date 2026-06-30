@@ -1,0 +1,104 @@
+{
+  "candidates": [
+    {
+      "name": "John Smith",
+      "email": "john.smith@outlook.com",
+      "mobile": "+442079460958",
+      "city": "London",
+      "country": "GB",
+      "top_skills": [
+        "SQL",
+        "Agile",
+        "Roadmapping"
+      ],
+      "current_title": "Product Manager",
+      "_provenance": {
+        "name": {
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        "email": {
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        "mobile": {
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        "city": {
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        "country": {
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        "top_skills": {
+          "source": "ats_json#ats-1002",
+          "method": "fuzzy_match"
+        },
+        "current_title": {
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        }
+      }
+    },
+    {
+      "name": "Jane Doe",
+      "email": "j.doe@work.com",
+      "mobile": "+14155550132",
+      "city": "San Francisco",
+      "country": "US",
+      "github": "https://github.com/janedoe",
+      "top_skills": [
+        "JavaScript",
+        "Kubernetes",
+        "Node.js",
+        "PostgreSQL",
+        "React",
+        "Go",
+        "Python",
+        "TypeScript",
+        "AWS",
+        "Docker",
+        "REST APIs",
+        "Machine Learning"
+      ],
+      "current_title": "Senior Software Engineer",
+      "_provenance": {
+        "name": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        "email": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        "mobile": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        "city": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        "country": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        "github": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        "top_skills": {
+          "source": "ats_json#ats-1001",
+          "method": "fuzzy_match"
+        },
+        "current_title": {
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-Source Candidate Data Transformer</title>
+  <style>
+    :root {
+      --bg: #0f1320; --panel: #171c2e; --panel2: #1f2742; --ink: #e7ecff;
+      --muted: #97a3c7; --acc: #6ea8ff; --ok: #3ecf8e; --warn: #ffcf5c; --err: #ff6b6b;
+      --mono: ui-monospace, SFMono-Regular, "Cascadia Code", Consolas, monospace;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink);
+           font-family: system-ui, "Segoe UI", Roboto, sans-serif; }
+    header { padding: 16px 22px; background: linear-gradient(90deg,#1a2140,#171c2e);
+             border-bottom: 1px solid #2a335a; }
+    header h1 { font-size: 18px; margin: 0; }
+    header p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .wrap { display: grid; grid-template-columns: 420px 1fr; gap: 14px; padding: 14px; height: calc(100vh - 70px); }
+    .panel { background: var(--panel); border: 1px solid #2a335a; border-radius: 10px;
+             display: flex; flex-direction: column; min-height: 0; }
+    .panel h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em;
+                color: var(--muted); margin: 0; padding: 12px 14px; border-bottom: 1px solid #2a335a; }
+    .btns { display: flex; gap: 8px; flex-wrap: wrap; padding: 10px 14px; }
+    button { background: var(--panel2); color: var(--ink); border: 1px solid #38426e;
+             border-radius: 7px; padding: 7px 11px; font-size: 13px; cursor: pointer; }
+    button:hover { border-color: var(--acc); }
+    button.primary { background: var(--acc); color: #07101f; border-color: var(--acc); font-weight: 600; }
+    textarea { flex: 1; margin: 0 14px 12px; background: #0c1020; color: var(--ink);
+               border: 1px solid #38426e; border-radius: 8px; padding: 12px;
+               font-family: var(--mono); font-size: 13px; line-height: 1.5; resize: none; }
+    .status { padding: 0 14px 12px; font-size: 13px; min-height: 20px; }
+    .tabs { display: flex; gap: 6px; padding: 10px 14px 0; }
+    .tabs button.active { background: var(--acc); color: #07101f; border-color: var(--acc); }
+    .view { flex: 1; overflow: auto; margin: 12px 14px; }
+    pre { margin: 0; font-family: var(--mono); font-size: 12.5px; line-height: 1.5; white-space: pre-wrap; word-break: break-word; }
+    .health-row { display: flex; gap: 10px; align-items: center; padding: 7px 10px;
+                  border: 1px solid #2a335a; border-radius: 7px; margin-bottom: 7px; font-size: 13px; }
+    .pill { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+    .pill.ok { background: rgba(62,207,142,.15); color: var(--ok); }
+    .pill.empty { background: rgba(255,207,92,.15); color: var(--warn); }
+    .pill.error { background: rgba(255,107,107,.15); color: var(--err); }
+    .ok-text { color: var(--ok); } .err-text { color: var(--err); } .muted { color: var(--muted); }
+    code { font-family: var(--mono); background: #0c1020; padding: 1px 5px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Multi-Source Candidate Data Transformer</h1>
+    <p>Edit the output config on the left and project the canonical record live. Inputs: bundled samples + cached GitHub (deterministic, offline).</p>
+  </header>
+
+  <div class="wrap">
+    <section class="panel">
+      <h2>Output config &mdash; live</h2>
+      <div class="btns">
+        <button onclick="loadCfg('example')">Example</button>
+        <button onclick="loadCfg('custom')">Custom</button>
+        <button onclick="loadCfg('empty')">Full canonical</button>
+        <button class="primary" onclick="project()">Project &#9654;</button>
+      </div>
+      <textarea id="config" spellcheck="false"></textarea>
+      <div class="status" id="status"></div>
+    </section>
+
+    <section class="panel">
+      <div class="tabs">
+        <button data-tab="projected" class="active" onclick="showTab('projected')">Projected output</button>
+        <button data-tab="canonical" onclick="showTab('canonical')">Canonical record</button>
+        <button data-tab="health" onclick="showTab('health')">Source health</button>
+      </div>
+      <div class="view" id="view-projected"><pre id="projected"></pre></div>
+      <div class="view" id="view-canonical" hidden><pre id="canonical"></pre></div>
+      <div class="view" id="view-health" hidden><div id="health"></div></div>
+    </section>
+  </div>
+
+  <script>
+    const CONFIGS = {
+      example: {{ example_config | tojson }},
+      custom: {{ custom_config | tojson }},
+      empty: ""
+    };
+    const CANONICAL = {{ canonical | tojson }};
+    const HEALTH = {{ health | tojson }};
+
+    document.getElementById("canonical").textContent = JSON.stringify(CANONICAL, null, 2);
+    renderHealth(HEALTH);
+
+    function loadCfg(name) {
+      document.getElementById("config").value = CONFIGS[name];
+      project();
+    }
+    function showTab(tab) {
+      for (const t of ["projected", "canonical", "health"]) {
+        document.getElementById("view-" + t).hidden = (t !== tab);
+      }
+      document.querySelectorAll(".tabs button").forEach(b =>
+        b.classList.toggle("active", b.dataset.tab === tab));
+    }
+    async function project() {
+      const config = document.getElementById("config").value;
+      const status = document.getElementById("status");
+      status.textContent = "Projecting…";
+      try {
+        const res = await fetch("/api/transform", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ config })
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          status.innerHTML = '<span class="err-text">' + (data.error || "Error") + '</span>';
+          return;
+        }
+        document.getElementById("projected").textContent = JSON.stringify(data.projected, null, 2);
+        const errs = data.validation_errors || [];
+        if (errs.length) {
+          status.innerHTML = '<span class="err-text">Schema validation failed: ' +
+            JSON.stringify(errs) + '</span>';
+        } else {
+          status.innerHTML = '<span class="ok-text">&#10003; valid</span> ' +
+            '<span class="muted">&nbsp;sha256 ' + data.hash.slice(0, 12) + '…</span>';
+        }
+        showTab("projected");
+      } catch (e) {
+        status.innerHTML = '<span class="err-text">' + e + '</span>';
+      }
+    }
+    function renderHealth(health) {
+      const el = document.getElementById("health");
+      el.innerHTML = "";
+      for (const h of health) {
+        const row = document.createElement("div");
+        row.className = "health-row";
+        const detail = h.detail ? h.detail : h.records + " record(s)";
+        row.innerHTML = '<span class="pill ' + h.status + '">' + h.status.toUpperCase() +
+          '</span><code>' + h.source + '</code><span class="muted">' + detail + '</span>';
+        el.appendChild(row);
+      }
+    }
+
+    loadCfg("example");
+  </script>
+</body>
+</html>

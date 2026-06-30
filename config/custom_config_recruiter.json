@@ -1,0 +1,16 @@
+{
+  "$comment": "Second custom config: a different projection shape proving the same engine reshapes output with no code changes. Demonstrates field subset, deep remap (location.city, links.github, experience[0].title), omit-on-missing, and provenance on.",
+  "fields": [
+    { "path": "name", "from": "full_name", "type": "string", "required": true },
+    { "path": "email", "from": "emails[0]", "type": "string" },
+    { "path": "mobile", "from": "phones[0]", "type": "string", "normalize": "E164" },
+    { "path": "city", "from": "location.city", "type": "string" },
+    { "path": "country", "from": "location.country", "type": "string" },
+    { "path": "github", "from": "links.github", "type": "string" },
+    { "path": "top_skills", "from": "skills[].name", "type": "string[]", "normalize": "canonical" },
+    { "path": "current_title", "from": "experience[0].title", "type": "string" }
+  ],
+  "include_confidence": false,
+  "include_provenance": true,
+  "on_missing": "omit"
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "source": "ats_json:ats_blob.json",
+    "source_type": "ats_json",
+    "status": "ok",
+    "records": 2,
+    "detail": null
+  },
+  {
+    "source": "ats_json:garbage_source.json",
+    "source_type": "ats_json",
+    "status": "error",
+    "records": 0,
+    "detail": "JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 3 (char 2)"
+  },
+  {
+    "source": "recruiter_csv:recruiter_export.csv",
+    "source_type": "recruiter_csv",
+    "status": "ok",
+    "records": 2,
+    "detail": null
+  },
+  {
+    "source": "recruiter_notes:recruiter_notes_jane.txt",
+    "source_type": "recruiter_notes",
+    "status": "ok",
+    "records": 1,
+    "detail": null
+  },
+  {
+    "source": "resume:resume_jane_doe.txt",
+    "source_type": "resume",
+    "status": "ok",
+    "records": 1,
+    "detail": null
+  },
+  {
+    "source": "github_api:janedoe",
+    "source_type": "github_api",
+    "status": "ok",
+    "records": 1,
+    "detail": null
+  }
+]

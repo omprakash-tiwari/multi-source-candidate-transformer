@@ -1,0 +1,334 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "cand-63fe5194bd",
+      "full_name": "John Smith",
+      "emails": [
+        "john.smith@outlook.com"
+      ],
+      "phones": [
+        "+442079460958"
+      ],
+      "location": {
+        "city": "London",
+        "region": "England",
+        "country": "GB"
+      },
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/johnsmith",
+        "github": null,
+        "portfolio": null,
+        "other": []
+      },
+      "headline": "Product Manager",
+      "years_experience": 9.0,
+      "skills": [
+        {
+          "name": "SQL",
+          "confidence": 0.855,
+          "sources": [
+            "ats_json"
+          ]
+        },
+        {
+          "name": "Agile",
+          "confidence": 0.4275,
+          "sources": [
+            "ats_json"
+          ]
+        },
+        {
+          "name": "Roadmapping",
+          "confidence": 0.4275,
+          "sources": [
+            "ats_json"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Globex Inc",
+          "title": "Product Manager",
+          "start": "2019-09",
+          "end": null,
+          "summary": null
+        }
+      ],
+      "education": [],
+      "provenance": [
+        {
+          "field": "emails",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "experience",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "full_name",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "headline",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "links.linkedin",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "location.city",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "location.country",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "location.region",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "phones",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        },
+        {
+          "field": "skills",
+          "source": "ats_json#ats-1002",
+          "method": "fuzzy_match"
+        },
+        {
+          "field": "years_experience",
+          "source": "ats_json#ats-1002",
+          "method": "structured_map"
+        }
+      ],
+      "overall_confidence": 0.8457
+    },
+    {
+      "candidate_id": "cand-edef346770",
+      "full_name": "Jane Doe",
+      "emails": [
+        "j.doe@work.com",
+        "jane.doe@gmail.com"
+      ],
+      "phones": [
+        "+14155550132"
+      ],
+      "location": {
+        "city": "San Francisco",
+        "region": "California",
+        "country": "US"
+      },
+      "links": {
+        "linkedin": "https://www.linkedin.com/in/janedoe",
+        "github": "https://github.com/janedoe",
+        "portfolio": "https://janedoe.dev",
+        "other": []
+      },
+      "headline": "Staff Software Engineer @ Acme | Distributed Systems",
+      "years_experience": 6.0,
+      "skills": [
+        {
+          "name": "JavaScript",
+          "confidence": 0.99,
+          "sources": [
+            "ats_json",
+            "github_api",
+            "resume"
+          ]
+        },
+        {
+          "name": "Kubernetes",
+          "confidence": 0.9234,
+          "sources": [
+            "ats_json",
+            "recruiter_notes"
+          ]
+        },
+        {
+          "name": "Node.js",
+          "confidence": 0.9234,
+          "sources": [
+            "ats_json",
+            "resume"
+          ]
+        },
+        {
+          "name": "PostgreSQL",
+          "confidence": 0.9234,
+          "sources": [
+            "ats_json",
+            "resume"
+          ]
+        },
+        {
+          "name": "React",
+          "confidence": 0.9234,
+          "sources": [
+            "ats_json",
+            "resume"
+          ]
+        },
+        {
+          "name": "Go",
+          "confidence": 0.8208,
+          "sources": [
+            "github_api",
+            "recruiter_notes"
+          ]
+        },
+        {
+          "name": "Python",
+          "confidence": 0.8208,
+          "sources": [
+            "github_api",
+            "recruiter_notes"
+          ]
+        },
+        {
+          "name": "TypeScript",
+          "confidence": 0.8208,
+          "sources": [
+            "github_api",
+            "resume"
+          ]
+        },
+        {
+          "name": "AWS",
+          "confidence": 0.525,
+          "sources": [
+            "resume"
+          ]
+        },
+        {
+          "name": "Docker",
+          "confidence": 0.525,
+          "sources": [
+            "resume"
+          ]
+        },
+        {
+          "name": "REST APIs",
+          "confidence": 0.525,
+          "sources": [
+            "resume"
+          ]
+        },
+        {
+          "name": "Machine Learning",
+          "confidence": 0.3025,
+          "sources": [
+            "recruiter_notes"
+          ]
+        }
+      ],
+      "experience": [
+        {
+          "company": "Acme Corp",
+          "title": "Senior Software Engineer",
+          "start": "2021-02",
+          "end": null,
+          "summary": "Led migration of the monolith to microservices; cut p99 latency by 40%.; Mentored 4 engineers and introduced an on-call rotation."
+        },
+        {
+          "company": "Globex Inc",
+          "title": "Software Engineer",
+          "start": "2018-06",
+          "end": "2021-02",
+          "summary": "Built a customer analytics pipeline processing 2M events/day.; Owned the public REST API used by 30+ partners."
+        }
+      ],
+      "education": [
+        {
+          "institution": "University of California, Berkeley",
+          "degree": "B.S.",
+          "field": "Computer Science",
+          "end_year": 2018
+        }
+      ],
+      "provenance": [
+        {
+          "field": "education",
+          "source": "resume#resume_jane_doe.txt",
+          "method": "regex_extract"
+        },
+        {
+          "field": "emails",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "experience",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "full_name",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "headline",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "links.github",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "links.linkedin",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "links.portfolio",
+          "source": "github_api#janedoe",
+          "method": "api_field"
+        },
+        {
+          "field": "location.city",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "location.country",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "location.region",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "phones",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        },
+        {
+          "field": "skills",
+          "source": "ats_json#ats-1001",
+          "method": "fuzzy_match"
+        },
+        {
+          "field": "years_experience",
+          "source": "ats_json#ats-1001",
+          "method": "structured_map"
+        }
+      ],
+      "overall_confidence": 0.8568
+    }
+  ]
+}

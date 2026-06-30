@@ -1,0 +1,45 @@
+{
+  "candidates": [
+    {
+      "full_name": "John Smith",
+      "primary_email": "john.smith@outlook.com",
+      "phone": "+442079460958",
+      "skills": [
+        "SQL",
+        "Agile",
+        "Roadmapping"
+      ],
+      "_confidence": {
+        "full_name": 0.9234,
+        "primary_email": 0.9234,
+        "phone": 0.855,
+        "skills": 0.57
+      }
+    },
+    {
+      "full_name": "Jane Doe",
+      "primary_email": "j.doe@work.com",
+      "phone": "+14155550132",
+      "skills": [
+        "JavaScript",
+        "Kubernetes",
+        "Node.js",
+        "PostgreSQL",
+        "React",
+        "Go",
+        "Python",
+        "TypeScript",
+        "AWS",
+        "Docker",
+        "REST APIs",
+        "Machine Learning"
+      ],
+      "_confidence": {
+        "full_name": 0.99,
+        "primary_email": 0.99,
+        "phone": 0.99,
+        "skills": 0.752
+      }
+    }
+  ]
+}

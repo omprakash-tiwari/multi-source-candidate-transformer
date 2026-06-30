@@ -1,0 +1,20 @@
+{
+  "$comment": "Offline GitHub fixture used as cache/fallback for the github source. Mirrors the fields the GitHub REST API returns for a user + their repos.",
+  "user": {
+    "login": "janedoe",
+    "name": "Jane Doe",
+    "bio": "Senior Software Engineer. I build distributed systems in Go and Python. Open-source enthusiast and mentor.",
+    "html_url": "https://github.com/janedoe",
+    "blog": "https://janedoe.dev",
+    "email": null,
+    "location": "San Francisco, CA",
+    "company": "@acme"
+  },
+  "repos": [
+    { "name": "distsys-toolkit", "language": "Go", "stargazers_count": 340, "fork": false },
+    { "name": "react-dashboard", "language": "TypeScript", "stargazers_count": 120, "fork": false },
+    { "name": "ml-experiments", "language": "Python", "stargazers_count": 85, "fork": false },
+    { "name": "legacy-scripts", "language": "JavaScript", "stargazers_count": 12, "fork": false },
+    { "name": "forked-thing", "language": "Java", "stargazers_count": 0, "fork": true }
+  ]
+}

@@ -1,0 +1,5 @@
+Call notes - 2026-06-12
+Spoke with Jane (jane.doe@gmail.com). ~6 years of experience, currently at Acme.
+Really strong in Python and machine learning; also dabbles in Golang.
+Open to Staff-level roles. Based out of the Bay Area. Mobile: 415-555-0132.
+Mentioned she led the migration to Kubernetes at her current job.

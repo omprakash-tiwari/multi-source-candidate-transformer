@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Test / cache
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+~$*
+
+# Exported Copilot chat sessions
+chat-session.json
+*.chat.json
+
+# Repo-memory / handoff scratch (not part of the submission)
+# Design doc + handoff notes are submitted separately; keep docs/ out of the code repo
+docs/
+
+# Runtime output (keep curated samples under data/output checked in manually)
+out/
+*.tmp
